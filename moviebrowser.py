@@ -44,13 +44,8 @@ def get_genres():
 # Helper function to get watch providers for a movie (Italy only)
 def get_watch_providers(movie_id):
     try:
-        url = f"https://api.themoviedb.org/3/movie/{movie_id}/watch/providers"
-        headers = {"Authorization": f"Bearer {tmdb.API_KEY}", "accept": "application/json"}
-        params = {"region": "IT"}
-        r = requests.get(url, headers=headers, params=params)
-        r.raise_for_status()
-        data = r.json()
-        return data.get('results', {}).get('IT', {})
+        r = tmdb.Movies(movie_id).watch_providers(region="IT", language="it-IT")
+        return r.get('results', {}).get('IT', {})
     except Exception:
         return {}
 
