@@ -145,3 +145,10 @@ if applica:
                             st.write(f"_{label}_: " + ", ".join([p['provider_name'] for p in providers[key]]))
 else:
     st.info("Imposta i filtri e premi 'Applica filtri' oppure cerca un film per titolo.")
+
+# Disclaimer at the bottom
+st.markdown("""
+<div style='text-align: center; font-size: 0.9em; color: gray; margin-top: 2em;'>
+    <em>I dati di questo sito sono forniti da <strong>TMDB</strong> e <strong>JustWatch</strong>. Questo prodotto non è affiliato o certificato da TMDB o JustWatch.</em>
+</div>
+""", unsafe_allow_html=True)
